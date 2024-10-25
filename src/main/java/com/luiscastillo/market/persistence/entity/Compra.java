@@ -1,5 +1,6 @@
 package com.luiscastillo.market.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -29,8 +30,16 @@ public class Compra
     @JoinColumn(name="id_cliente",insertable=false,updatable=false)
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "compra")
+    @OneToMany(mappedBy = "compra", cascade = {CascadeType.ALL})
     private List<DetalleCompra> productos;
+
+    public List<DetalleCompra> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<DetalleCompra> productos) {
+        this.productos = productos;
+    }
 
     public Cliente getCliente() {
         return cliente;

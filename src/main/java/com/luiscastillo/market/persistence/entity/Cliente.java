@@ -2,7 +2,6 @@ package com.luiscastillo.market.persistence.entity;
 
 import jakarta.persistence.*;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -13,7 +12,7 @@ public class Cliente {
     private String idCliente;
 
     private String nombre;
-    private String apellido;
+    private String apellidos;
     @Column(name="celular")
     private Long telefono;
     private String direccion;
@@ -39,12 +38,12 @@ public class Cliente {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getApellidos() {
+        return apellidos;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
     public Long getTelefono() {

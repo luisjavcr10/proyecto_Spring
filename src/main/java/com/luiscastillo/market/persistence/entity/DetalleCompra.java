@@ -1,5 +1,6 @@
 package com.luiscastillo.market.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -13,7 +14,8 @@ public class DetalleCompra
     private Boolean estado;
 
     @ManyToOne
-    @JoinColumn(name="id_compra",insertable=false,updatable=false)
+    @MapsId("idCompra")
+    @JoinColumn(name = "id_compra", insertable = false, updatable = false)
     private Compra compra;
 
     @ManyToOne

@@ -1,7 +1,6 @@
 package com.luiscastillo.market.domain.repository;
 
 import com.luiscastillo.market.domain.Product;
-import com.luiscastillo.market.persistence.entity.Producto;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,5 +13,4 @@ public interface  ProductRepository
     Optional<List<Product>> minimumStock(int stock,boolean active);
     Product save(Product product);
     void delete(int productId);
-
 }
