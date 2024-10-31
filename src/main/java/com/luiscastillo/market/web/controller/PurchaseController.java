@@ -20,19 +20,19 @@ public class PurchaseController {
     @Autowired
     private PurchaseService purchaseService;
 
-    @Operation(summary = "Obtener todas las compras", description = "Retorna una lista de todas las compras realizadas")
+    @Operation(summary = "Get all purchases", description = "Return a list of purchases")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Lista de compras obtenida exitosamente")
+            @ApiResponse(responseCode = "200", description = "List of purchases got with success")
     })
     @GetMapping("/all")
     public ResponseEntity<List<Purchase>> getAll() {
         return new ResponseEntity<>(purchaseService.getAll(), HttpStatus.OK);
     }
 
-    @Operation(summary = "Obtener compras por cliente", description = "Retorna una lista de compras realizadas por un cliente específico")
+    @Operation(summary = "Get a purchase by Client", description = " Return a list of purchases made by client")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Compras del cliente obtenidas exitosamente"),
-            @ApiResponse(responseCode = "404", description = "No se encontraron compras para el cliente especificado")
+            @ApiResponse(responseCode = "200", description = "Success"),
+            @ApiResponse(responseCode = "404", description = "Not found purchases")
     })
     @GetMapping("/client/{id}")
     public ResponseEntity<List<Purchase>> getByClient(

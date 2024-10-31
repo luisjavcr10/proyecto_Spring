@@ -7,6 +7,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface CategoryMapper {
     @Mappings({
@@ -15,6 +17,7 @@ public interface CategoryMapper {
             @Mapping(source = "estado", target ="active")
     })
     Category toCategory(Categoria categoria);
+    List<Category> toCategories(List<Categoria> categorias);
 
     @InheritInverseConfiguration
     //Como no mapeamos la lista de productos definida en la entidad Categoria, con esto le indicamos que no va a recibir esa lista y que la ignore
